@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Espace enfants - Contenus adaptés</title>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 20px; background: #f0f7ff; }
+        .jeu { background: white; margin: 10px; padding: 15px; border-radius: 20px; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .jeu:hover { background: #ffe0b5; }
+    </style>
+</head>
+<body>
+    <h1>🎈 Jeux et dessins animés pour enfants</h1>
+    <p>Clique sur ce que ton enfant veut regarder :</p>
+
+    <div class="jeu" data-url="https://www.youtube.com/watch?v=dQw4w9WgXcQ">🎮 Jeu de poney</div>
+    <div class="jeu" data-url="https://www.youtube.com/watch?v=9bZkp7q19f0">🐵 Dessin animé - Singes rigolos</div>
+    <div class="jeu" data-url="https://www.youtube.com/watch?v=6Dh-RL__uN4">🧸 Comptine pour bébé</div>
+
+    <script>
+        // Boîte de dialogue âge avant redirection
+        const jeux = document.querySelectorAll('.jeu');
+        jeux.forEach(jeu => {
+            jeu.addEventListener('click', () => {
+                let age = prompt("🥰 Quel âge a ton mignon enfant ? (entier, entre 1 et 12)");
+                if (age !== null && age >= 1 && age <= 12) {
+                    alert("Merci ! On adapte les contenus pour " + age + " ans. (Bientôt : sélection de vidéos adaptées)");
+                    // Ici tu pourras rediriger vers une URL différente selon l'âge
+                    // window.location.href = jeu.getAttribute('data-url');
+                    // Pour l'instant on ne redirige pas, on simule
+                } else if (age !== null) {
+                    alert("Entre 1 et 12 ans, s'il te plaît.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
